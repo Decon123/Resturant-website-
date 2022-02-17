@@ -107,7 +107,6 @@ a {
     align-items: flex-start;
     gap: var(--gap);
     padding: 3rem;
-    
 }
 .hero-image-section > * {
     background: var(--yellow);
