@@ -1,0 +1,300 @@
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+        /*global styles*/
+:root {
+    --yellow:#FFC600;
+    --black:#272727;
+    --card-gridcolbreakpoint:15rem;
+    --img-gridcolbreakpoint:13rem;
+    --gap:1rem;
+}
+@font-face {
+    font-family: "Montserrat",sans-serif;
+    src: url("../montserrat/Montserrat-Bold.ttf");
+}
+@font-face {
+    font-family: "Montserrat",sans-serif;;
+    src: url("../montserrat/Montserrat-Regular.ttf");
+}
+body {
+    width: 90%;
+    margin: 2rem auto;
+    background: linear-gradient(110deg, #f93d66, #6d47d9);
+    display: grid;
+    grid-template-rows: auto minmax(50vh,auto) auto minmax(50vh,auto) auto;
+    gap: var(--gap);
+    font: 15px "Montserrat",sans-serif;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.btn {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+}
+.btn:hover {
+    cursor: pointer;
+    color: #474747;
+    background: #ffd94f;
+}
+a {
+    text-decoration: none;
+}
+
+        /*===========header section================*/
+#menu {
+    grid-row: 1/2;
+}
+
+.foods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--gap);
+}
+.foods .food {
+    background: var(--yellow);
+    flex: 1 1 calc((100% - 4rem)/5);
+    padding: 1rem 0;
+    text-align: center;
+}
+.foods .food a {
+    color: var(--black);
+    text-transform: uppercase;
+    text-align: center;
+    font:bold 1.3rem "Montserrat",sans-serif;
+}
+.foods .food:hover a,
+.foods .food:focus a {
+    cursor: pointer;
+    color: #474747;
+}
+
+                /*=========hero-section==========*/
+.hero-section {
+    grid-row: 2/3;
+}
+
+.hero-section .hero {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "image tacos"
+                        "image kombucha";
+    gap: var(--gap);
+}
+
+.hero-image-section {
+    grid-area: image;
+    background: url("../images/taco2.jpg") center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--gap);
+    padding: 3rem;
+    
+}
+.hero-image-section > * {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 1rem 0.5rem;
+}
+.hero-topic {
+    font-size: 1.8rem;
+}
+.hero-caption {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.food-prices {
+    background: var(--yellow);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+}
+.food-prices .food-price {
+    font-weight: lighter;
+    font-size: 2rem;
+}
+.food-prices .food-name {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+.hero .food-prices:nth-child(1) {
+    grid-area: tacos;
+}
+
+.hero .food-prices:nth-child(2) {
+    grid-area: kombucha;
+}
+
+        /*===========card-section============*/
+
+.card-section {
+    grid-row: 3/4;
+    height: 100%;
+}
+.card-section .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(var(--card-gridcolbreakpoint),1fr));
+    gap: var(--gap);
+    height: 100%;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    background: #fff;
+    padding: 1.2rem 1rem;
+}
+
+.card .card-describe {
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+    text-shadow: -2px -1px 3px rgba(0,0,0,0.5);
+}
+.card .icon {
+    font-size: 3rem;
+}
+        /*===========form section==========*/
+
+.form-section {
+    grid-row: 4/5;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.form-section .form {
+    display: flex;
+    align-items: center;
+}
+.food-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap)+0.5rem;
+    /*max-width:38ch;*/
+}
+.food-form .btn {
+    background: var(--yellow);
+    padding: 1rem 1.5rem;
+    font-weight: lighter;
+}
+.food-form .form-describe {
+    line-height: 1.5;
+    white-space: pre-line;
+}
+/*===========img gallery======*/
+
+.image-gallery {
+    grid-row: 5/-1;
+}
+.image-gallery .img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+}
+.img-topic {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: var(--gap);
+}
+.img-topic h1 {
+    font-size: 1.5rem;
+}
+.img-topic::after,.img-topic::before {
+    content: "";
+    margin: auto;
+    width: 100%;
+    height: 0.6rem;
+    border-radius: 10rem;
+    background: linear-gradient(to left,var(--yellow),transparent);
+}
+.img-topic::after {
+    background: linear-gradient(to right,var(--yellow),transparent);
+}
+.images {
+    align-self: stretch;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(var(--img-gridcolbreakpoint),1fr));
+    grid-template-rows: repeat(2,1fr);
+    gap: var(--gap);
+}
+.images img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/*media queries*/
+@media (max-width:893px) {
+    .form-section .form {
+        flex-direction: column;
+    }
+    .food-form {
+        width:auto;
+        padding-bottom: 2rem;
+        align-items: center;
+    }
+    .food-form .form-describe {
+        text-align: center;
+    }
+    .hero-image-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width:530px) {
+    .foods {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--gap);
+    }
+    .foods .food {
+        flex: 1 1 100%;
+       
+    }
+    .hero-section .hero {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 1fr;
+        grid-template-areas: "image image"
+                            "tacos kombucha";
+    }
+    
+    .hero-image-section > * {
+        margin-left: 1rem;
+        padding: 0.5rem 0.25rem;
+    }
+    .hero-image-section {
+        padding: 1rem;
+    }
+
+    .form-section .food-image img {
+        max-width: 100%;
+    }
+}
