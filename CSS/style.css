@@ -29,6 +29,7 @@ body {
     grid-template-rows: auto minmax(50vh,auto) auto minmax(50vh,auto) auto;
     gap: var(--gap);
     font: 15px "Montserrat",sans-serif;
+    text-align: center;
 }
 ul {
     list-style: none;
